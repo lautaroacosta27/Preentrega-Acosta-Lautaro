@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="containerr">
+ <!-- stars nav -->
+ <nav class="navbar navbar-expand-md botonera">
+    <div class="container-fluid">
+      <!-- boton hamburguesa -->
+      <div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </button>
+      </div>
+      <!-- logo -->
+      <a class="navbar-brand" href="../index.html">Casa Ruda</a>
+        <!-- menu -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./nosotros.html">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./menu.html">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./reservas.html">Reservas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="header-reserva">
+    <h1>CASA RUDA</h1>
+    <button>RESERVA ONLINE</button>
+  </header>
+  <main container class="reserva">
+    <h1>SOBRE NUESTROS ESPACIOS</h1>
+    <div class="horarios">
+        <section class="brunch">
+            <h2>Ruda Brunch & Coffe</h2>
+            <h3>Abierto todos los dias</h3>
+            <h3>08:00-00:00hs</h3>
+        </section>
+        <section class="bar">
+            <h2>Ruda Kitchen & Bar</h2>
+            <h3>Viernes y Sabado<br>08:00-00:00hs</h3>
+            <h3>Domingo<br>12:00-15:30hs</h3>
+        </section>
+        <section class="garden">
+            <h2>Ruda Coffe Garden</h2>
+            <h3>Sabados y Domingos</h3>
+            <h3>16:00-20:00hs</h3>
+        </section>
+    </div>
+  </main>
+
+  <footer>
+    <p class="footer-text">© 2023 Casa Ruda, todos los derechos reservados</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+  crossorigin="anonymous"></script>
+    <script>
+    function validarNombreCompleto(){
+      var nombre = prompt("Ingrese su nombre completo");
+      console.log("Nombre ingresado: " + nombre);
+
+      if(nombre.trim()===""){
+        alert("Debe ingresar un nombre valido");
+        validarNombreCompleto();
+        return;
+      }
+      var letrasEspacios=/^[a-zA-Z\s]+$/;
+      if(!nombre.match(letrasEspacios)){
+        alert("ingrese un nombre valido");
+        validarNombreCompleto();
+        return;
+      }
+      alert("nombre valido: " + nombre);
+    }    
+    validarNombreCompleto();
+
+    function validarfechaReserva(){
+    var fechaReserva = prompt("Ingrese fecha de la reserva (DD/MM/AAAA)");
+    console.log("Fecha de reserva: " + fechaReserva);
+
+    if(fechaReserva.trim()===""){
+      alert("Por favor,ingrese una fecha valida");
+      validarfechaReserva();
+      return;
+      }
+      alert("Fecha confirmada: " + fechaReserva);
+    }
+    validarfechaReserva();
+
+    function validarhoraReserva(){
+    var horaReserva = prompt("Ingrese hora de la reserva (HH:MM AM/PM)");
+    console.log("Hora de reserva: " + horaReserva);
+
+    if(horaReserva.trim()===""){
+      alert("Por favor,ingrese una hora valida");
+      validarhoraReserva();
+      return;
+      }
+      alert("Hora confirmada: " + horaReserva);
+    }
+    validarhoraReserva();
+
+    function ingresarNumeroPersonas(){
+      var cantidadPersonas = prompt("Ingrese el numero de personas para la reserva");
+      
+      if(cantidadPersonas.trim()===""){
+      alert("Por favor,ingrese un valor valido");
+      ingresarNumeroPersonas();
+      return;
+      }
+      alert("Cantidad de personas: " + cantidadPersonas);
+    }
+    ingresarNumeroPersonas();
+
+
+    function mostrarConfirmacion(){
+      var nombre = validarNombreCompleto();
+      var fechaReserva = validarfechaReserva();
+      var horaReserva = validarhoraReserva();
+      var cantidadPersonas = ingresarNumeroPersonas();
+
+      var costoPorPersona = 9000;
+      var presupuestoTotal = costoPorPersona*cantidadPersonas;
+
+      var mensaje = "Hola" + nombre + "su reserva ha sido cnfirmada para el dia" + fechaReserva+"a las"+horaReserva+" El costo por persona es de $"+costoPorPersona+" y su presupuesto total es de $"+presupuestoTotal+" Muchas gracias"
+      
+      alert(mensaje);
+      if(cantidadPersonas.trim()===""){
+      alert("Por favor,ingrese un valor valido");
+      ingresarNumeroPersonas();
+      return;
+      }
+      alert("Cantidad de personas: " + cantidadPersonas);
+    }
+    mostrarConfirmacion();
+  
+  </script>
+</body>
+</html>
