@@ -9,16 +9,16 @@ if((nombreUsuario !="") && (apellidoUsuario !="")){
   alert("Hola " + nombreUsuario + espacio + apellidoUsuario);
 }else{
   alert("Debe ingresar su nombre completo");
-  reserva()
+  reserva();
 }
 while(true){
   let fecha = prompt("Ingrese la fecha a reservar(DD/MM/AAAA)");
-  let hora = prompt("Ingrese la hora a reservar (HH:MM");
+  let hora = prompt("Ingrese la hora a reservar(20:00/21:00/22:00)");
 
   if((fecha !="") && (hora !="")){
     alert (nombreUsuario+ espacio + apellidoUsuario + espacio+ "su reserva se confirmo para el dia " + fecha +espacio+ "a las " +hora+"hs");break;
   }else{
-    alert("Debe ingresar fecha y hora")
+    alert("Debe ingresar fecha y hora");
   }
 }
 }
