@@ -24,13 +24,56 @@ while(true){
 }
 reserva()
 
+// ------- preentrega2 ------- //
+
+let cantidadPersonas = parseInt(prompt("Ingrese la cantidad de personas(maximo8)"));
+if(cantidadPersonas>=1 && cantidadPersonas<=8){
+if(cantidadPersonas<=5){
+  let reserva = []
+
+  for(let i=0;i<cantidadPersonas; i++){
+    let nombre = prompt("Ingrese el nombre de la persona #" + (i+1) + ":");
+    reserva.push(nombre);
+  }alert("Genial, los nombres fueron registrados "+reserva)
+}
+}else{
+  alert("No hay disponibilidad para esa cantidad de personas en esta fecha")
+}
+
+
+let menu1 ={
+  entrada: "Tapeo",
+  platoPrincipal: "Asado",
+  bebida: "Gaseosa y Vino",
+  postre: "Helado"
+};
+
+let menu2 ={
+  entrada: "Tapeo",
+  platoPrincipal: "Pasta",
+  bebida: "Gaseosa y Vino",
+  postre: "Helado"
+};
+
+const menus = [menu1, menu2];
+
+let opcionMenu= prompt("Elige un tipo de menu: 1 o 2");
+if(opcionMenu ==="1" || opcionMenu === "2"){
+  let menuElegido = menus[opcionMenu-1];
+
+alert("Has elegido el siguiente menu:");
+alert("Entrada: " + menuElegido.entrada);
+alert("Plato principal: " + menuElegido.platoPrincipal);
+alert("Bebida: " + menuElegido.bebida);
+alert("Postre: " + menuElegido.postre);
+}else{
+  alert("Opcion Invalida. Por favor elige 1 o 2.");
+}
 
 
 
 
 
-// let fechaReserva = prompt("Ingrese fecha a reservar");
-// let horaReserva = prompt("Ingrese hora a reservar");
 
 
 
@@ -45,88 +88,4 @@ reserva()
 
 
 
-
-
-
-
-
-
-// function validarNombreCompleto(){
-//   let nombre = prompt("Ingrese su nombre completo");
-//   console.log("Nombre ingresado: " + nombre);
-
-//   if(nombre.trim()===""){
-//     alert("Debe ingresar un nombre valido");
-//     validarNombreCompleto();
-//     return;
-//   }
-//   var letrasEspacios=/^[a-zA-Z\s]+$/;
-//   if(!nombre.match(letrasEspacios)){
-//     alert("ingrese un nombre valido");
-//     validarNombreCompleto();
-//     return;
-//   }
-//   alert("nombre valido: " + nombre);
-// }    
-// validarNombreCompleto();
-
-// function validarfechaReserva(){
-// var fechaReserva = prompt("Ingrese fecha de la reserva (DD/MM/AAAA)");
-// console.log("Fecha de reserva: " + fechaReserva);
-
-// if(fechaReserva.trim()===""){
-//   alert("Por favor,ingrese una fecha valida");
-//   validarfechaReserva();
-//   return;
-//   }
-//   alert("Fecha confirmada: " + fechaReserva);
-// }
-// validarfechaReserva();
-
-// function validarhoraReserva(){
-// var horaReserva = prompt("Ingrese hora de la reserva (HH:MM AM/PM)");
-// console.log("Hora de reserva: " + horaReserva);
-
-// if(horaReserva.trim()===""){
-//   alert("Por favor,ingrese una hora valida");
-//   validarhoraReserva();
-//   return;
-//   }
-//   alert("Hora confirmada: " + horaReserva);
-// }
-// validarhoraReserva();
-
-// function ingresarNumeroPersonas(){
-//   var cantidadPersonas = prompt("Ingrese el numero de personas para la reserva");
-  
-//   if(cantidadPersonas.trim()===""){
-//   alert("Por favor,ingrese un valor valido");
-//   ingresarNumeroPersonas();
-//   return;
-//   }
-//   alert("Cantidad de personas: " + cantidadPersonas);
-// }
-// ingresarNumeroPersonas();
-
-
-// function mostrarConfirmacion(){
-//   var nombre = validarNombreCompleto();
-//   var fechaReserva = validarfechaReserva();
-//   var horaReserva = validarhoraReserva();
-//   var cantidadPersonas = ingresarNumeroPersonas();
-
-//   var costoPorPersona = 9000;
-//   var presupuestoTotal = costoPorPersona*cantidadPersonas;
-
-//   var mensaje = "Hola" + nombre + "su reserva ha sido cnfirmada para el dia" + fechaReserva+"a las"+horaReserva+" El costo por persona es de $"+costoPorPersona+" y su presupuesto total es de $"+presupuestoTotal+" Muchas gracias"
-  
-//   alert(mensaje);
-//   if(cantidadPersonas.trim()===""){
-//   alert("Por favor,ingrese un valor valido");
-//   ingresarNumeroPersonas();
-//   return;
-//   }
-//   alert("Cantidad de personas: " + cantidadPersonas);
-// }
-// mostrarConfirmacion();
 
