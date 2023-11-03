@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="containerr">
  <!-- stars nav -->
@@ -21,7 +22,7 @@
         </button>
       </div>
       <!-- logo -->
-      <a class="navbar-brand" href="../index.html">Casa Ruda</a>
+      <a class="navbar-brand" href="../index.html"><img src="../img/Imagen1.png" alt=""></a>
         <!-- menu -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -43,8 +44,63 @@
   </nav>
   <header class="header-reserva">
     <h1>CASA RUDA</h1>
-    <button>RESERVA ONLINE</button>
-  </header>
+    <button class="btn-realizar-reserva" id="btnReservar">RESERVAR</button>
+      
+      <form id="reservaForm" class="hidden">
+          <!-- Campos del formulario para la reserva -->
+          <label for="nombreUsuario">Nombre:</label>
+          <input type="text" id="nombreUsuario" required><br>
+          
+          <label for="apellidoUsuario">Apellido:</label>
+          <input type="text" id="apellidoUsuario" required><br>
+          
+          <label for="fecha">Fecha a reservar (DD/MM/AAAA):</label>
+          <input type="text" id="fecha" required><br>
+          
+          <label for="hora">Hora a reservar (21:00/22:00):</label>
+          <input type="number" id="hora" name="hora" min="21" max="22" required> <br>
+          
+          <label for="cantidadPersonas">Cantidad de personas (máximo 8):</label>
+          <input type="number" id="cantidadPersonas" required>
+          <span id="cantidadPersonasError" class="error-message"></span><br>
+  
+          <label for="nombrePersona">Nombre de la persona:</label>
+          <input type="text" id="nombrePersona" required><br>
+         
+  
+          <label for="opcionMenu">Elige un tipo de menú: 1 o 2</label>
+          <input type="number" id="opcionMenu" name="opcionMenu" min="1" max="2" required>
+          
+          <button class="btn-realizar-reserva" type="submit">Finalizar Reserva</button>
+      </form>
+      
+      
+      <div id="reservaDetails" class="hidden">
+        <div class="reserva-info">
+          <p class="confirmacion-reserva"><strong>Hola </strong><span id="nombreApellido"></span><span>, su reserva fue confirmada.</span></p>
+          <div class="reserva-detalles">
+            <div>
+              <p><strong>Fecha y Hora de Reserva:</strong></p>
+              <p><span id="fechaHora"></span></p>
+            </div>
+            <div>
+              <p><strong>Cantidad de Personas:</strong></p>
+              <p><span id="cantidadPersonasReserva"></span></p>
+            </div>
+            <div>
+              <p><strong>Nombres de Personas:</strong></p>
+              <p><span id="nombresPersonas"></span></p>
+            </div>
+            <div>
+              <p><strong>Menú Elegido:</strong></p>
+              <ul class="mi-menu" id="menuElegido"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  
+
   <main container class="reserva">
     <h1>SOBRE NUESTROS ESPACIOS</h1>
     <div class="horarios">
@@ -64,11 +120,13 @@
             <h3>16:00-20:00hs</h3>
         </section>
     </div>
+    
   </main>
 
   <footer>
     <p class="footer-text">© 2023 Casa Ruda, todos los derechos reservados</p>
   </footer>
+  <div id="outputDiv" class="output-container"></div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
   crossorigin="anonymous"></script>
